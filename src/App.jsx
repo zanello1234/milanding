@@ -95,16 +95,12 @@ const App = () => {
                         </button>
                         <div className="h-4 w-px bg-slate-700 mx-2"></div>
 
-                        <a href={audience === 'business' ? "#soluciones" : "#diagnostico"} className="hover:text-white transition-colors">
-                            {audience === 'business' ? "¿Cómo ayudo?" : "Diagnóstico"}
+                        <a href={audience === 'business' ? "#soluciones" : "#mentoria"} className="hover:text-white transition-colors">
+                            {audience === 'business' ? "¿Cómo ayudo?" : "El Método"}
                         </a>
-                        <a href={audience === 'business' ? "#herramientas" : "#comparativa"} className="hover:text-white transition-colors">
-                            {audience === 'business' ? "Stack" : "Software"}
+                        <a href={audience === 'business' ? "#herramientas" : "#automatizacion"} className="hover:text-white transition-colors">
+                            {audience === 'business' ? "Stack" : "Tecnología"}
                         </a>
-                        <a href={audience === 'business' ? "#ia" : "#automatizacion"} className="hover:text-indigo-400 transition-colors font-bold flex items-center gap-1">
-                            <Zap size={14} /> {audience === 'business' ? "IA" : "Automatización"}
-                        </a>
-
                         <a href="#contacto" className="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition-all font-semibold shadow-lg shadow-indigo-900/20">
                             Hablemos
                         </a>
