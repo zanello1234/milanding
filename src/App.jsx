@@ -93,7 +93,7 @@ const App = () => {
                 <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
                     <div className="space-y-6">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm font-semibold">
-                            <Briefcase className="w-4 h-4" /> Consultoría para Empresas Reales
+                            <Briefcase className="w-4 h-4" /> Consultoría para problemas reales
                         </div>
                         <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight">
                             La tecnología tiene que <br />
