@@ -23,7 +23,10 @@ import {
     Zap,
     Bot,
     Calculator,
-    FileSpreadsheet
+    FileSpreadsheet,
+    Award,
+    Code2,
+    Mic2
 } from 'lucide-react';
 
 const App = () => {
@@ -455,78 +458,152 @@ const App = () => {
                 </div>
             </section>
 
-            {/* Capacitación y Transferencia */}
-            <section className="py-24 bg-[#0f172a]">
-                <div className="max-w-7xl mx-auto px-6 text-center">
-                    <h2 className="text-3xl font-bold text-white mb-12">Te dejo todo funcionando (y te enseño a usarlo)</h2>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {[
-                            { icon: <Settings />, title: "Implementación", desc: "Configuro el software a la medida de TU flujo." },
-                            { icon: <Puzzle />, title: "Automatización", desc: "Conecto tu web con tu facturación o tu email." },
-                            { icon: <Users />, title: "Capacitación", desc: "Talleres prácticos para ti y tus empleados." },
-                            { icon: <CalendarCheck />, title: "Seguimiento", desc: "No desaparezco. Acompaño la puesta en marcha." }
-                        ].map((card, i) => (
-                            <div key={i} className="p-6 bg-[#1e293b]/50 rounded-xl border border-slate-800 text-left">
-                                <div className="bg-indigo-500/10 w-10 h-10 flex items-center justify-center rounded-lg text-indigo-400 mb-4">
-                                    {card.icon}
+            {/* Quien Soy - Bio Section */}
+            <section id="bio" className="py-24 bg-[#0f172a] relative">
+                <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-indigo-900/10 to-transparent"></div>
+                <div className="max-w-7xl mx-auto px-6 relative z-10">
+                    <div className="flex flex-col md:flex-row gap-16 items-center">
+                        <div className="w-full md:w-1/3">
+                            <div className="relative">
+                                <div className="absolute inset-0 bg-indigo-500 blur-3xl opacity-20 rounded-full"></div>
+                                <img
+                                    src="https://media.licdn.com/dms/image/v2/D4D03AQE13yq8t_lQow/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718285897184?e=1744848000&v=beta&t=lX2Gz2I_F4QO0C0gXJ2O6H4P8I0a5IqF5e1d5l9z4x8"
+                                    alt="Martín Zanello"
+                                    className="relative w-full aspect-square object-cover rounded-2xl border-2 border-slate-700 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
+                                />
+                                <div className="absolute -bottom-6 -right-6 bg-[#1e293b] p-4 rounded-xl border border-slate-700 shadow-xl">
+                                    <p className="text-indigo-400 font-bold text-lg">CPCESFE CAM II</p>
+                                    <p className="text-slate-500 text-xs">Matriculado</p>
                                 </div>
-                                <h4 className="font-bold text-white mb-2">{card.title}</h4>
-                                <p className="text-slate-400 text-sm">{card.desc}</p>
                             </div>
-                        ))}
+                        </div>
+                        <div className="w-full md:w-2/3">
+                            <h2 className="text-4xl font-bold text-white mb-2">Martín Zanello</h2>
+                            <p className="text-xl text-indigo-400 font-medium mb-6">Contador Público & Especialista en Transformación Digital</p>
+
+                            <p className="text-slate-400 mb-8 leading-relaxed text-lg">
+                                Soy un híbrido entre las finanzas y el código. Con base sólida en <strong>Auditoría e Impuestos</strong>, viré mi carrera hacia la tecnología para resolver los problemas que sufrí como contador.
+                                Hoy lidero implementaciones de <strong>Odoo ERP</strong> y ayudo a empresas a dejar de pelear con sus sistemas.
+                            </p>
+
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div className="bg-[#1e293b]/50 p-6 rounded-xl border border-slate-800 hover:border-indigo-500/30 transition-all group">
+                                    <div className="bg-indigo-500/10 w-10 h-10 flex items-center justify-center rounded-lg text-indigo-400 mb-4 group-hover:scale-110 transition-transform">
+                                        <Briefcase size={20} />
+                                    </div>
+                                    <h4 className="font-bold text-white mb-2">Trayectoria Real</h4>
+                                    <p className="text-slate-400 text-sm">
+                                        Socio Fundador de <strong>Nova Cool SRL</strong> (2011) y <strong>Be Only One</strong> (2024). Sé lo que es pagar sueldos y gestionar un negocio.
+                                    </p>
+                                </div>
+
+                                <div className="bg-[#1e293b]/50 p-6 rounded-xl border border-slate-800 hover:border-indigo-500/30 transition-all group">
+                                    <div className="bg-emerald-500/10 w-10 h-10 flex items-center justify-center rounded-lg text-emerald-400 mb-4 group-hover:scale-110 transition-transform">
+                                        <Award size={20} />
+                                    </div>
+                                    <h4 className="font-bold text-white mb-2">Formación de Elite</h4>
+                                    <p className="text-slate-400 text-sm">
+                                        MBA (EUDE Madrid), Master en Metodologías Ágiles (Tech México). Certificado en <strong>Google Data Analytics</strong> y <strong>UI Path</strong>.
+                                    </p>
+                                </div>
+
+                                <div className="bg-[#1e293b]/50 p-6 rounded-xl border border-slate-800 hover:border-indigo-500/30 transition-all group">
+                                    <div className="bg-blue-500/10 w-10 h-10 flex items-center justify-center rounded-lg text-blue-400 mb-4 group-hover:scale-110 transition-transform">
+                                        <Code2 size={20} />
+                                    </div>
+                                    <h4 className="font-bold text-white mb-2">Tech Stack</h4>
+                                    <p className="text-slate-400 text-sm">
+                                        Experto en <strong>Odoo</strong> (V15/16). Python para automatización, Power BI y SQL. No toco de oído.
+                                    </p>
+                                </div>
+
+                                <div className="bg-[#1e293b]/50 p-6 rounded-xl border border-slate-800 hover:border-indigo-500/30 transition-all group">
+                                    <div className="bg-purple-500/10 w-10 h-10 flex items-center justify-center rounded-lg text-purple-400 mb-4 group-hover:scale-110 transition-transform">
+                                        <Mic2 size={20} />
+                                    </div>
+                                    <h4 className="font-bold text-white mb-2">Speaker</h4>
+                                    <p className="text-slate-400 text-sm">
+                                        Disertante en Consejos Profesionales sobre <strong>IA, RPA y Agilidad</strong> en la profesión contable.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
 
-            {/* Contact Section */}
-            <section id="contacto" className="py-24 bg-gradient-to-b from-[#1e293b] to-[#0f172a]">
-                <div className="max-w-3xl mx-auto px-6">
-                    <div className="bg-[#0f172a] p-8 md:p-12 rounded-3xl border border-slate-800 shadow-2xl text-center">
-                        <h2 className="text-3xl font-bold text-white mb-4">¿Tomamos un café y miramos tus procesos?</h2>
-                        <p className="text-slate-400 mb-8">
-                            Cuéntame qué te está quitando el sueño en tu negocio. La primera charla de diagnóstico es sin compromiso.
-                        </p>
 
-                        <form onSubmit={handleSubmit} className="space-y-4 text-left">
-                            <div className="grid md:grid-cols-2 gap-4">
+                {/* Capacitación y Transferencia */}
+                <section className="py-24 bg-[#0f172a]">
+                    <div className="max-w-7xl mx-auto px-6 text-center">
+                        <h2 className="text-3xl font-bold text-white mb-12">Te dejo todo funcionando (y te enseño a usarlo)</h2>
+
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {[
+                                { icon: <Settings />, title: "Implementación", desc: "Configuro el software a la medida de TU flujo." },
+                                { icon: <Puzzle />, title: "Automatización", desc: "Conecto tu web con tu facturación o tu email." },
+                                { icon: <Users />, title: "Capacitación", desc: "Talleres prácticos para ti y tus empleados." },
+                                { icon: <CalendarCheck />, title: "Seguimiento", desc: "No desaparezco. Acompaño la puesta en marcha." }
+                            ].map((card, i) => (
+                                <div key={i} className="p-6 bg-[#1e293b]/50 rounded-xl border border-slate-800 text-left">
+                                    <div className="bg-indigo-500/10 w-10 h-10 flex items-center justify-center rounded-lg text-indigo-400 mb-4">
+                                        {card.icon}
+                                    </div>
+                                    <h4 className="font-bold text-white mb-2">{card.title}</h4>
+                                    <p className="text-slate-400 text-sm">{card.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Contact Section */}
+                <section id="contacto" className="py-24 bg-gradient-to-b from-[#1e293b] to-[#0f172a]">
+                    <div className="max-w-3xl mx-auto px-6">
+                        <div className="bg-[#0f172a] p-8 md:p-12 rounded-3xl border border-slate-800 shadow-2xl text-center">
+                            <h2 className="text-3xl font-bold text-white mb-4">¿Tomamos un café y miramos tus procesos?</h2>
+                            <p className="text-slate-400 mb-8">
+                                Cuéntame qué te está quitando el sueño en tu negocio. La primera charla de diagnóstico es sin compromiso.
+                            </p>
+
+                            <form onSubmit={handleSubmit} className="space-y-4 text-left">
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="text-sm font-medium text-slate-400 mb-1 block">Tu Nombre</label>
+                                        <input required name="name" value={formData.name} onChange={handleChange} type="text" className="w-full bg-[#1e293b] border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 outline-none" placeholder="Ej: Martín Gómez" />
+                                    </div>
+                                    <div>
+                                        <label className="text-sm font-medium text-slate-400 mb-1 block">Tu Email</label>
+                                        <input required name="email" value={formData.email} onChange={handleChange} type="email" className="w-full bg-[#1e293b] border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 outline-none" placeholder="martin@tuempresa.com" />
+                                    </div>
+                                </div>
                                 <div>
-                                    <label className="text-sm font-medium text-slate-400 mb-1 block">Tu Nombre</label>
-                                    <input required name="name" value={formData.name} onChange={handleChange} type="text" className="w-full bg-[#1e293b] border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 outline-none" placeholder="Ej: Martín Gómez" />
+                                    <label className="text-sm font-medium text-slate-400 mb-1 block">Tu Empresa (Opcional)</label>
+                                    <input name="company" value={formData.company} onChange={handleChange} type="text" className="w-full bg-[#1e293b] border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 outline-none" placeholder="Ej: Tu Empresa S.A." />
                                 </div>
                                 <div>
-                                    <label className="text-sm font-medium text-slate-400 mb-1 block">Tu Email</label>
-                                    <input required name="email" value={formData.email} onChange={handleChange} type="email" className="w-full bg-[#1e293b] border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 outline-none" placeholder="martin@tuempresa.com" />
+                                    <label className="text-sm font-medium text-slate-400 mb-1 block">¿Qué necesitas mejorar hoy?</label>
+                                    <textarea required name="message" value={formData.message} onChange={handleChange} rows="3" className="w-full bg-[#1e293b] border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 outline-none" placeholder="Ej: Pierdo mucho tiempo facturando, mi stock no cuadra, quiero digitalizar mis pedidos..."></textarea>
                                 </div>
-                            </div>
-                            <div>
-                                <label className="text-sm font-medium text-slate-400 mb-1 block">Tu Empresa (Opcional)</label>
-                                <input name="company" value={formData.company} onChange={handleChange} type="text" className="w-full bg-[#1e293b] border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 outline-none" placeholder="Ej: Tu Empresa S.A." />
-                            </div>
-                            <div>
-                                <label className="text-sm font-medium text-slate-400 mb-1 block">¿Qué necesitas mejorar hoy?</label>
-                                <textarea required name="message" value={formData.message} onChange={handleChange} rows="3" className="w-full bg-[#1e293b] border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-indigo-500 outline-none" placeholder="Ej: Pierdo mucho tiempo facturando, mi stock no cuadra, quiero digitalizar mis pedidos..."></textarea>
-                            </div>
-                            <button className="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-600/20">
-                                Solicitar Diagnóstico
-                            </button>
-                        </form>
+                                <button className="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-600/20">
+                                    Solicitar Diagnóstico
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Simple Footer */}
-            <footer className="py-12 bg-[#0f172a] border-t border-slate-800 text-center">
-                <div className="max-w-7xl mx-auto px-6">
-                    <p className="text-white font-bold text-lg mb-2">Mentor.Funcional</p>
-                    <p className="text-slate-500 text-sm mb-6">Consultoría IT honesta y práctica para negocios que quieren crecer.</p>
-                    <div className="flex justify-center gap-6 text-slate-400">
-                        <a href="#" className="hover:text-white"><Linkedin size={20} /></a>
-                        <a href="#" className="hover:text-white"><Mail size={20} /></a>
+                {/* Simple Footer */}
+                <footer className="py-12 bg-[#0f172a] border-t border-slate-800 text-center">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <p className="text-white font-bold text-lg mb-2">Mentor.Funcional</p>
+                        <p className="text-slate-500 text-sm mb-6">Consultoría IT honesta y práctica para negocios que quieren crecer.</p>
+                        <div className="flex justify-center gap-6 text-slate-400">
+                            <a href="#" className="hover:text-white"><Linkedin size={20} /></a>
+                            <a href="#" className="hover:text-white"><Mail size={20} /></a>
+                        </div>
+                        <p className="text-slate-600 text-xs mt-8">© {new Date().getFullYear()} Mentoría Funcional. Todos los derechos reservados.</p>
                     </div>
-                    <p className="text-slate-600 text-xs mt-8">© {new Date().getFullYear()} Mentoría Funcional. Todos los derechos reservados.</p>
-                </div>
-            </footer>
+                </footer>
 
         </div>
     );
