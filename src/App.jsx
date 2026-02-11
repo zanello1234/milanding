@@ -27,18 +27,21 @@ import {
     Award,
     Code2,
     Mic2,
-    BookOpen
+    BookOpen,
+    Video
 } from 'lucide-react';
 
 import AccountingSection from './components/AccountingSection';
 import BusinessSection from './components/BusinessSection';
 import BlogSection from './components/BlogSection';
+import CoursesSection from './components/CoursesSection';
+import AdminDashboard from './components/AdminDashboard';
 
 const App = () => {
     const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
     const [scrolled, setScrolled] = useState(false);
     const [audience, setAudience] = useState('business'); // 'business' | 'accounting'
-    const [view, setView] = useState('home'); // 'home' | 'blog'
+    const [view, setView] = useState('home'); // 'home' | 'blog' | 'courses' | 'admin'
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -83,59 +86,77 @@ const App = () => {
         <div className="min-h-screen bg-[#0f172a] font-sans text-slate-200 selection:bg-indigo-500/30">
 
             {/* Navbar */}
-            <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0f172a]/90 backdrop-blur-md border-b border-slate-800 py-4' : 'bg-transparent py-6'}`}>
-                <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-                    <div className="flex items-center gap-2 group cursor-pointer" onClick={handleLogoClick}>
-                        <div className="bg-indigo-600 p-2 rounded-lg">
-                            <Lightbulb className="text-white w-5 h-5" />
+            {view !== 'admin' && (
+                <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0f172a]/90 backdrop-blur-md border-b border-slate-800 py-4' : 'bg-transparent py-6'}`}>
+                    <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+                        <div className="flex items-center gap-2 group cursor-pointer" onClick={handleLogoClick}>
+                            <div className="bg-indigo-600 p-2 rounded-lg">
+                                <Lightbulb className="text-white w-5 h-5" />
+                            </div>
+                            <span className="text-2xl font-bold tracking-tight text-white">
+                                Mentor<span className="text-indigo-400">.Funcional</span>
+                            </span>
                         </div>
-                        <span className="text-2xl font-bold tracking-tight text-white">
-                            Mentor<span className="text-indigo-400">.Funcional</span>
-                        </span>
+                        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                            <button
+                                onClick={() => handleAudienceSwitch('business')}
+                                className={`text-sm font-medium transition-colors ${view === 'home' && audience === 'business' ? 'text-indigo-400 font-bold' : 'text-slate-300 hover:text-white'}`}
+                            >
+                                Empresas
+                            </button>
+                            <button
+                                onClick={() => handleAudienceSwitch('accounting')}
+                                className={`text-sm font-medium transition-colors ${view === 'home' && audience === 'accounting' ? 'text-brand-warm font-bold' : 'text-slate-300 hover:text-white'}`}
+                            >
+                                Estudios Contables
+                            </button>
+
+                            <div className="h-4 w-px bg-slate-700 mx-2"></div>
+
+                            {view === 'home' && (
+                                <>
+                                    <a href={audience === 'business' ? "#soluciones" : "#mentoria"} className="hover:text-white transition-colors">
+                                        {audience === 'business' ? "¿Cómo ayudo?" : "El Método"}
+                                    </a>
+                                    <a href={audience === 'business' ? "#herramientas" : "#automatizacion"} className="hover:text-white transition-colors">
+                                        {audience === 'business' ? "Stack" : "Tecnología"}
+                                    </a>
+                                    {audience === 'business' && (
+                                        <a href="#only-one" className="hover:text-indigo-400 font-bold transition-colors">
+                                            Only One
+                                        </a>
+                                    )}
+                                </>
+                            )}
+
+                            <button
+                                onClick={() => setView('courses')}
+                                className={`text-sm font-medium transition-colors flex items-center gap-1 ${view === 'courses' ? 'text-indigo-400 font-bold' : 'text-slate-300 hover:text-white'}`}
+                            >
+                                <Video size={16} /> Cursos
+                            </button>
+
+                            <button
+                                onClick={() => setView('blog')}
+                                className={`text-sm font-medium transition-colors flex items-center gap-1 ${view === 'blog' ? 'text-indigo-400 font-bold' : 'text-slate-300 hover:text-white'}`}
+                            >
+                                <BookOpen size={16} /> Blog
+                            </button>
+
+                            <a href="#contacto" className="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition-all font-semibold shadow-lg shadow-indigo-900/20">
+                                Hablemos
+                            </a>
+                        </div>
                     </div>
-                    <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                        <button
-                            onClick={() => handleAudienceSwitch('business')}
-                            className={`text-sm font-medium transition-colors ${view === 'home' && audience === 'business' ? 'text-indigo-400 font-bold' : 'text-slate-300 hover:text-white'}`}
-                        >
-                            Empresas
-                        </button>
-                        <button
-                            onClick={() => handleAudienceSwitch('accounting')}
-                            className={`text-sm font-medium transition-colors ${view === 'home' && audience === 'accounting' ? 'text-brand-warm font-bold' : 'text-slate-300 hover:text-white'}`}
-                        >
-                            Estudios Contables
-                        </button>
-
-                        <div className="h-4 w-px bg-slate-700 mx-2"></div>
-
-                        {view === 'home' && (
-                            <>
-                                <a href={audience === 'business' ? "#soluciones" : "#mentoria"} className="hover:text-white transition-colors">
-                                    {audience === 'business' ? "¿Cómo ayudo?" : "El Método"}
-                                </a>
-                                <a href={audience === 'business' ? "#herramientas" : "#automatizacion"} className="hover:text-white transition-colors">
-                                    {audience === 'business' ? "Stack" : "Tecnología"}
-                                </a>
-                            </>
-                        )}
-
-                        <button
-                            onClick={() => setView('blog')}
-                            className={`text-sm font-medium transition-colors flex items-center gap-1 ${view === 'blog' ? 'text-indigo-400 font-bold' : 'text-slate-300 hover:text-white'}`}
-                        >
-                            <BookOpen size={16} /> Blog
-                        </button>
-
-                        <a href="#contacto" className="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition-all font-semibold shadow-lg shadow-indigo-900/20">
-                            Hablemos
-                        </a>
-                    </div>
-                </div>
-            </nav>
+                </nav>
+            )}
 
             {view === 'blog' ? (
                 <BlogSection onBack={() => setView('home')} />
+            ) : view === 'courses' ? (
+                <CoursesSection onBack={() => setView('home')} />
+            ) : view === 'admin' ? (
+                <AdminDashboard onLogout={() => setView('home')} />
             ) : (
                 <>
                     {audience === 'business' ? (
@@ -156,6 +177,8 @@ const App = () => {
                                             src="/martin.jpg"
                                             alt="Martín Zanello"
                                             className="relative w-full aspect-square object-cover rounded-2xl border-2 border-slate-700 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
+                                            onDoubleClick={() => setView('admin')} // Secret admin entry
+                                            title="Martín Zanello"
                                         />
                                         <div className="absolute -bottom-6 -right-6 bg-[#1e293b] p-4 rounded-xl border border-slate-700 shadow-xl">
                                             <p className="text-indigo-400 font-bold text-lg">CPCESFE CAM II</p>
@@ -284,28 +307,32 @@ const App = () => {
             )}
 
             {/* Simple Footer */}
-            <footer className="py-12 bg-[#0f172a] border-t border-slate-800 text-center">
-                <div className="max-w-7xl mx-auto px-6">
-                    <p className="text-white font-bold text-lg mb-2">Mentor.Funcional</p>
-                    <p className="text-slate-500 text-sm mb-6">Consultoría IT honesta y práctica para negocios que quieren crecer.</p>
-                    <div className="flex justify-center gap-6 text-slate-400">
-                        <a href="#" className="hover:text-white"><Linkedin size={20} /></a>
-                        <a href="#" className="hover:text-white"><Mail size={20} /></a>
+            {view !== 'admin' && (
+                <footer className="py-12 bg-[#0f172a] border-t border-slate-800 text-center">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <p className="text-white font-bold text-lg mb-2">Mentor.Funcional</p>
+                        <p className="text-slate-500 text-sm mb-6">Consultoría IT honesta y práctica para negocios que quieren crecer.</p>
+                        <div className="flex justify-center gap-6 text-slate-400">
+                            <a href="#" className="hover:text-white"><Linkedin size={20} /></a>
+                            <a href="#" className="hover:text-white"><Mail size={20} /></a>
+                        </div>
+                        <p className="text-slate-600 text-xs mt-8">© {new Date().getFullYear()} Mentoría Funcional. Todos los derechos reservados.</p>
                     </div>
-                    <p className="text-slate-600 text-xs mt-8">© {new Date().getFullYear()} Mentoría Funcional. Todos los derechos reservados.</p>
-                </div>
-            </footer>
+                </footer>
+            )}
 
             {/* WhatsApp Button */}
-            <a
-                href="https://wa.me/543416968999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all hover:scale-110 z-50 flex items-center justify-center"
-                title="Hablemos por WhatsApp"
-            >
-                <MessageCircle size={32} />
-            </a>
+            {view !== 'admin' && (
+                <a
+                    href="https://wa.me/543416968999"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all hover:scale-110 z-50 flex items-center justify-center"
+                    title="Hablemos por WhatsApp"
+                >
+                    <MessageCircle size={32} />
+                </a>
+            )}
 
         </div>
     );

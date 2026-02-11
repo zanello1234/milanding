@@ -204,7 +204,7 @@ const BusinessSection = ({ tools }) => {
             </section>
 
             {/* Odoo Partner Section - Only One */}
-            <section className="py-24 bg-[#0f172a] border-y border-slate-800 relative z-10">
+            <section id="only-one" className="py-24 bg-[#0f172a] border-y border-slate-800 relative z-10">
                 <div className="absolute inset-0 bg-indigo-900/10 opacity-50 pointer-events-none"></div>
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex flex-col md:flex-row gap-16 items-center">
