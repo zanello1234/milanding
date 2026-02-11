@@ -132,7 +132,7 @@ const AdminDashboard = ({ onLogout }) => {
                                 </div>
                                 <div>
                                     <label className="block text-sm text-slate-500 mb-1">Fecha</label>
-                                    <input name="date" value={formData.date} onChange={handleChange} className="w-full border p-2 rounded" />
+                                    <input type="date" name="date" value={formData.date} onChange={handleChange} className="w-full border p-2 rounded" />
                                 </div>
                                 <div>
                                     <label className="block text-sm text-slate-500 mb-1">Tipo</label>
@@ -204,8 +204,8 @@ const AdminDashboard = ({ onLogout }) => {
                                         <td className="p-4 text-slate-500 text-sm">{course.type}</td>
                                         <td className="p-4">
                                             <span className={`px-2 py-1 rounded-full text-xs font-bold ${course.status === 'Open' ? 'bg-green-100 text-green-700' :
-                                                    course.status === 'Coming Soon' ? 'bg-indigo-100 text-indigo-700' :
-                                                        'bg-red-100 text-red-700'
+                                                course.status === 'Coming Soon' ? 'bg-indigo-100 text-indigo-700' :
+                                                    'bg-red-100 text-red-700'
                                                 }`}>
                                                 {course.status}
                                             </span>

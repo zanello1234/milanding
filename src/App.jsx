@@ -146,6 +146,14 @@ const App = () => {
                             <a href="#contacto" className="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition-all font-semibold shadow-lg shadow-indigo-900/20">
                                 Hablemos
                             </a>
+                            <a
+                                href="https://calendar.app.google/KiEKGw6SHJNFMPbA8"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-white text-indigo-900 px-5 py-2 rounded-lg hover:bg-slate-100 transition-all font-bold shadow-md flex items-center gap-2"
+                            >
+                                <CalendarCheck size={18} /> Agendar Cita
+                            </a>
                         </div>
                     </div>
                 </nav>
@@ -176,6 +184,8 @@ const App = () => {
                                         <img
                                             src="/martin.jpg"
                                             alt="Martín Zanello"
+                                            width="400"
+                                            height="400"
                                             className="relative w-full aspect-square object-cover rounded-2xl border-2 border-slate-700 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
                                             onDoubleClick={() => setView('admin')} // Secret admin entry
                                             title="Martín Zanello"
@@ -313,8 +323,8 @@ const App = () => {
                         <p className="text-white font-bold text-lg mb-2">Mentor.Funcional</p>
                         <p className="text-slate-500 text-sm mb-6">Consultoría IT honesta y práctica para negocios que quieren crecer.</p>
                         <div className="flex justify-center gap-6 text-slate-400">
-                            <a href="#" className="hover:text-white"><Linkedin size={20} /></a>
-                            <a href="#" className="hover:text-white"><Mail size={20} /></a>
+                            <a href="#" className="hover:text-white" aria-label="LinkedIn"><Linkedin size={20} /></a>
+                            <a href="#" className="hover:text-white" aria-label="Email"><Mail size={20} /></a>
                         </div>
                         <p className="text-slate-600 text-xs mt-8">© {new Date().getFullYear()} Mentoría Funcional. Todos los derechos reservados.</p>
                     </div>
@@ -329,6 +339,7 @@ const App = () => {
                     rel="noopener noreferrer"
                     className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all hover:scale-110 z-50 flex items-center justify-center"
                     title="Hablemos por WhatsApp"
+                    aria-label="Contactar por WhatsApp"
                 >
                     <MessageCircle size={32} />
                 </a>
