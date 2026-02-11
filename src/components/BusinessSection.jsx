@@ -19,7 +19,8 @@ import {
     Zap,
     Bot,
     Calculator,
-    FileSpreadsheet
+    FileSpreadsheet,
+    Code2
 } from 'lucide-react';
 
 const BusinessSection = ({ tools }) => {
@@ -199,6 +200,84 @@ const BusinessSection = ({ tools }) => {
                     <p className="mt-8 text-slate-500 text-sm italic">
                         *Analizo tu necesidad y elegimos juntos la mejor opción, sin casarnos con ninguna marca.
                     </p>
+                </div>
+            </section>
+
+            {/* Odoo Partner Section - Only One */}
+            <section className="py-24 bg-[#0f172a] border-y border-slate-800 relative z-10">
+                <div className="absolute inset-0 bg-indigo-900/10 opacity-50 pointer-events-none"></div>
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="flex flex-col md:flex-row gap-16 items-center">
+                        <div className="w-full md:w-1/2">
+                            <div className="bg-white p-6 rounded-2xl shadow-2xl shadow-indigo-500/20 inline-block mb-8 rotate-1 transform hover:rotate-0 transition-all duration-500">
+                                <span className="text-4xl font-extrabold text-[#714B67] tracking-tighter">odoo</span>
+                                <span className="ml-2 px-2 py-1 bg-[#714B67] text-white text-xs font-bold rounded uppercase tracking-widest">Partner</span>
+                            </div>
+                            <h2 className="text-5xl font-extrabold text-white mb-6 leading-tight">
+                                Descubre el poder de <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Only One</span>.
+                            </h2>
+                            <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+                                Más que un software, somos tu equipo de tecnología. Implementamos <strong>Odoo</strong>, el ERP de código abierto más completo del mercado, adaptándolo a la realidad de tu empresa.
+                            </p>
+
+                            <div className="space-y-6 mb-10">
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-purple-500/20 p-3 rounded-lg text-purple-400">
+                                        <Users size={24} />
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-bold text-lg">Equipo Propio, No Freelancers</h4>
+                                        <p className="text-slate-400 text-sm">Gente real, comprometida con tu proyecto de punta a punta.</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-pink-500/20 p-3 rounded-lg text-pink-400">
+                                        <Zap size={24} />
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-bold text-lg">Soporte "Sin Verso"</h4>
+                                        <p className="text-slate-400 text-sm">Respuestas rápidas y soluciones eficientes. No te dejamos tirado.</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-blue-500/20 p-3 rounded-lg text-blue-400">
+                                        <Code2 size={24} />
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-bold text-lg">Código Abierto & Libertad</h4>
+                                        <p className="text-slate-400 text-sm">Sin licencias ocultas. El sistema crece contigo, sin límites.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="https://onlyone.odoo.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-[#714B67] hover:bg-[#5d3d54] text-white rounded-xl font-bold transition-all shadow-lg shadow-purple-900/30 transform hover:scale-105">
+                                Visitar Only One <ArrowRight size={20} />
+                            </a>
+                        </div>
+
+                        <div className="w-full md:w-1/2 relative">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"></div>
+                            <div className="relative z-10 bg-[#1e293b] border border-slate-700 p-2 rounded-2xl shadow-2xl">
+                                <img
+                                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+                                    alt="Interfaz Odoo Dashboard Only One"
+                                    className="rounded-xl w-full opacity-90"
+                                />
+                                <div className="absolute -bottom-10 -left-10 bg-[#0f172a] p-6 rounded-2xl border border-slate-700 shadow-xl max-w-xs">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                                    </div>
+                                    <p className="text-slate-300 text-sm font-mono">
+                                        &gt; System.status = "Optimized"<br />
+                                        &gt; Team.ready = True<br />
+                                        &gt; <strong>Welcome to Only One.</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
